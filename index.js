@@ -25,6 +25,8 @@ const express = require('express')
 
 const cors = require('cors')
 
+const process = require ('process')
+
 const app = express()
 
 app.use(cors())
@@ -82,7 +84,9 @@ app.post('/api/data', (request, response) => {
     response.status(201).json(newNote)
 })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
+
+
 app.listen(PORT, () => {
     console.log(`Server running in port ${PORT}`)
 })
